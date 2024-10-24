@@ -35,7 +35,7 @@ const Checkout = () => {
     // Validate fields
     if (firstname && lastname && phone && address) {
       try {
-        await axios.post("https://thippa-s-project-default-rtdb.firebaseio.com/Checkout.json", productdata);
+        await axios.post("https://ecom-e06dd-default-rtdb.firebaseio.com/Checkout.json", productdata);
 
         Swal.fire({
           title: 'Info added',

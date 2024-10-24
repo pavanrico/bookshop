@@ -10,7 +10,7 @@ const Product = () => {
   const navigate = useNavigate()
 
  const getdata=async()=>{
-         const res=await axios.get('https://thippa-s-project-default-rtdb.firebaseio.com/ProductData.json')
+         const res=await axios.get('https://ecom-e06dd-default-rtdb.firebaseio.com/ProductData.json')
          setproducts(Object.values(res.data))
 
  }
@@ -21,7 +21,7 @@ const Product = () => {
 const addToCart = async (pname, price, pid,) => {
   if (id) {
     try {
-      const resp = await axios.get('https://thippa-s-project-default-rtdb.firebaseio.com/Cartdata.json');
+      const resp = await axios.get('https://ecom-e06dd-default-rtdb.firebaseio.com/Cartdata.json');
       const cartData = resp.data;
       let isInCart = false
 
@@ -39,7 +39,7 @@ const addToCart = async (pname, price, pid,) => {
         navigate(`/cart/${id}`);
       } else {
         const data = { id, ProductName: pname, ProductPrice: price, ProductID: pid, ProductQuantity: 1 };
-        await axios.post(`https://thippa-s-project-default-rtdb.firebaseio.com/Cartdata/.json`, data);
+        await axios.post(`https://ecom-e06dd-default-rtdb.firebaseio.com/Cartdata/.json`, data);
         navigate(`/cart/${id}`);
       }
     } catch (error) {
@@ -80,7 +80,7 @@ const buy = async (pname, price, pid) => {
   };
 
   try {
-    const resp = await axios.post(`https://thippa-s-project-default-rtdb.firebaseio.com/Buy/.json`, data);
+    const resp = await axios.post(`https://ecom-e06dd-default-rtdb.firebaseio.com/Buy/.json`, data);
     navigate(`/CheckOut/${pid}`);
   } catch (error) {
     console.error("Error uploading purchase data:", error);

@@ -16,7 +16,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 
     const getData = async () => {
       try {
-          const resp = await axios.get('https://thippa-s-project-default-rtdb.firebaseio.com/Cartdata.json');
+          const resp = await axios.get('https://ecom-e06dd-default-rtdb.firebaseio.com/Cartdata.json');
           if (resp.data) {
               const fetchedItems = Object.keys(resp.data).map(key => ({
                   ...resp.data[key],
@@ -43,7 +43,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
     const handleRemove = async (firebaseKey) => {
       try {
           // Deleting the item from the backend
-          const itemUrl = `https://thippa-s-project-default-rtdb.firebaseio.com/Cartdata/${firebaseKey}.json`;
+          const itemUrl = `https://ecom-e06dd-default-rtdb.firebaseio.com/Cartdata/${firebaseKey}.json`;
           await axios.delete(itemUrl);
 
           // Updating the state after successful deletion
@@ -67,10 +67,10 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
         try {
             const updates = userItems.map(async (item) => {
                 // Assuming `ProductID` is used as the key in Firebase
-                const itemUrl = `https://thippa-s-project-default-rtdb.firebaseio.com/Cartdata/${item.firebaseKey}.json`;
+                const itemUrl = `https://ecom-e06dd-default-rtdb.firebaseio.com/Cartdata/${item.firebaseKey}.json`;
                 return axios.patch(itemUrl, {
                     ProductQuantity: item.ProductQuantity,
-                });
+             } );
             });
 
             // Wait for all the updates to complete

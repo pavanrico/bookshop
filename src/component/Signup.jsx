@@ -33,7 +33,7 @@ const Signup = () => {
     e.preventDefault();
      const data ={id:username,email,password}
      if(username!==''&& email!==''&&password!==''){
-      const res=axios.post("https://thippa-s-project-default-rtdb.firebaseio.com/Userdata.json",data)
+      const res=axios.post("https://ecom-e06dd-default-rtdb.firebaseio.com/Userdata.json",data)
 
       Swal.fire(
         {

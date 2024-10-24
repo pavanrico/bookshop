@@ -12,7 +12,7 @@ const navigation=useNavigate()
   const handleSubmit=async(e)=>{
     e.preventDefault()
       if(username!==''&&password!==''){
-         const res=await  fetch('https://thippa-s-project-default-rtdb.firebaseio.com/Userdata.json')
+         const res=await  fetch('https://ecom-e06dd-default-rtdb.firebaseio.com/Userdata.json')
                const data = await res.json()
                const detail=Object.values(data)
          

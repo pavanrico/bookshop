@@ -27,7 +27,7 @@ export const Bill = () => {
   const getData = async () => {
     try {
       const res = await axios.get(
-        "https://thippa-s-project-default-rtdb.firebaseio.com/Checkout.json"
+        "https://ecom-e06dd-default-rtdb.firebaseio.com/Checkout.json"
       );
       const result = Object.values(res.data);
       let userInfo = result.find((item) => item.id === username);
@@ -44,11 +44,11 @@ export const Bill = () => {
   const getCart = async () => {
     try {
       if (id === username) {
-        const res1 = await axios.get("https://thippa-s-project-default-rtdb.firebaseio.com/Cartdata.json");
+        const res1 = await axios.get("https://ecom-e06dd-default-rtdb.firebaseio.com/Cartdata.json");
         const cartData = Object.values(res1.data);
         setCart(cartData.filter((item) => item.id === username));
       } else {
-        const res2 = await axios.get("https://thippa-s-project-default-rtdb.firebaseio.com/Buy.json");
+        const res2 = await axios.get("https://ecom-e06dd-default-rtdb.firebaseio.com/Buy.json");
         const cartData1 = Object.values(res2.data); 
         console.log('Cart data from Buy:', cartData1);// Changed from res1 to res2
         setCart(cartData1.filter((item) => item.ProductID ===parseInt(id)  && item.id === username));
